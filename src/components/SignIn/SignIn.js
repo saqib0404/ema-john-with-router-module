@@ -1,14 +1,31 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {  } from '@fortawesome/free-solid-svg-icons'
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/UserContext';
 import './SignIn.css';
 
 const SignIn = () => {
+    const { signIn } = useContext(AuthContext)
+
+
+    const handleSignIn = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(res => {
+                console.log(res.user)
+                form.reset();
+            })
+            .catch(err => console.log(err))
+    }
     return (
         <div className='signin-container'>
             <h3>Login</h3>
-            <form>
+            <form onSubmit={handleSignIn}>
                 <div className="form-control">
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" placeholder='your email' required />
