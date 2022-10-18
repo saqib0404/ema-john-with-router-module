@@ -24,7 +24,8 @@
     font-size: 17px;
     line-height: 20px;
     letter-spacing: 0.0015em;
-    color: #2A414F;
+    color: #2A414F; 
+    margin-bottom: 7px;
 }
 
 .form-control input {

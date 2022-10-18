@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {  } from '@fortawesome/free-solid-svg-icons'
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -23,7 +23,7 @@ const SignIn = () => {
                     <hr className='half-hr' />or <hr className='half-hr' />
                 </div>
                 <button className='google-signin-btn'>
-                    <FontAwesomeIcon></FontAwesomeIcon> &nbsp;
+                    {/* <FontAwesomeIcon></FontAwesomeIcon> &nbsp; */}
                     Continue with Google
                 </button>
             </form>
