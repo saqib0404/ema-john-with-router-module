@@ -1,13 +1,15 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {  } from '@fortawesome/free-solid-svg-icons'
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
 import './SignIn.css';
 
 const SignIn = () => {
     const { signIn } = useContext(AuthContext)
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -19,6 +21,7 @@ const SignIn = () => {
             .then(res => {
                 console.log(res.user)
                 form.reset();
+                navigate(from, { replace: true })
             })
             .catch(err => console.log(err))
     }
